@@ -40,6 +40,9 @@ const Assets = () => {
       queryClient.invalidateQueries({ queryKey: ['assets'] });
       setIsModalOpen(false);
       setAssetName('');
+    },
+    onError: (error) => {
+      alert(`Asset registration failed: ${error.response?.data?.message || error.message}`);
     }
   });
 

@@ -48,6 +48,9 @@ const Transfers = () => {
       setAssetId('');
       setToBaseId('');
       setQuantity(1);
+    },
+    onError: (error) => {
+      alert(`Transfer request failed: ${error.response?.data?.message || error.message}`);
     }
   });
 
@@ -58,6 +61,9 @@ const Transfers = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['transfers'] });
       queryClient.invalidateQueries({ queryKey: ['assets'] });
+    },
+    onError: (error) => {
+      alert(`Transfer approval failed: ${error.response?.data?.message || error.message}`);
     }
   });
 

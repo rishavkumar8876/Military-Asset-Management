@@ -51,6 +51,9 @@ const Assignments = () => {
       setAssetId('');
       setAssignedTo('');
       setQuantity(1);
+    },
+    onError: (error) => {
+      alert(`Assignment failed: ${error.response?.data?.message || error.message}`);
     }
   });
 
