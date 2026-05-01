@@ -49,6 +49,9 @@ const Purchases = () => {
       setIsModalOpen(false);
       setAssetId('');
       setQuantity(1);
+    },
+    onError: (error) => {
+      alert(`Purchase logging failed: ${error.response?.data?.message || error.message}`);
     }
   });
 
