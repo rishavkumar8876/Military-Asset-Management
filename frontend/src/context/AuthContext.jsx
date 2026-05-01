@@ -18,6 +18,9 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('user', JSON.stringify(res.data));
       navigate('/');
     } catch (error) {
+      if (!error.response) {
+        throw "Network Error: Could not reach the server. Please check your VITE_API_URL and ensure the backend is running.";
+      }
       throw error.response?.data?.message || 'Login failed';
     }
   };
