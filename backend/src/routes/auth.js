@@ -13,6 +13,7 @@ const generateToken = (id) => {
 // @route   POST /api/auth/login
 // @desc    Auth user & get token
 router.post('/login', async (req, res) => {
+  console.log('Login attempt:', req.body);
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email }).populate('base');
